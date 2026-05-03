@@ -17,7 +17,31 @@ Author: Optimized for 5G NR RACH 4-step procedure
 
 from datetime import datetime
 import os
+import sys
+import pathlib
 from scipy import signal, integrate, special
+
+# ==============================================================================
+# AUTO-PATH FIX: Automatically detect script location and change working directory
+# This solves issues with spaces in paths and running from different directories
+# ==============================================================================
+
+# Get the absolute path of the current script
+script_path = pathlib.Path(__file__).resolve()
+script_dir = script_path.parent
+
+# If the current working directory is not the script's directory, change it
+if os.getcwd() != str(script_dir):
+    print(f"[AUTO-PATH] Changing working directory to: {script_dir}")
+    os.chdir(script_dir)
+    
+# Add the script directory to sys.path to ensure local imports work
+if str(script_dir) not in sys.path:
+    sys.path.insert(0, str(script_dir))
+
+print(f"[AUTO-PATH] Running from: {os.getcwd()}")
+# ==============================================================================
+
 import numpy as np
 import torch
 from tqdm import tqdm
