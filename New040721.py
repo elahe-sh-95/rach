@@ -2418,3 +2418,6 @@ if __name__ == "__main__":
         )
 
         print(f"All plots for {prof['name']} saved in high-quality formats in: {plots_dir}")
+
+# Backward compatibility alias
+actualTrafficPattern = actualTrafficPattern_optimized
