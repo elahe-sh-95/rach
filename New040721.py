@@ -2184,6 +2184,9 @@ def actualTrafficPattern_optimized(
 # Main with multiple profiles + clean curves
 # ============================
 
+# Backward compatibility alias - MUST be before __main__ block
+actualTrafficPattern = actualTrafficPattern_optimized
+
 if __name__ == "__main__":
     # --- Traffic Config ---
     numDevicesVec = [20000, 10000, 8000, 10000, 10000, 20000, 10000, 12000, 10000, 10000]
@@ -2418,6 +2421,3 @@ if __name__ == "__main__":
         )
 
         print(f"All plots for {prof['name']} saved in high-quality formats in: {plots_dir}")
-
-# Backward compatibility alias
-actualTrafficPattern = actualTrafficPattern_optimized
